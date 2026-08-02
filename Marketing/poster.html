@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shiva Honda DMS - Ultimate Dealership Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --honda-red: #CC0000;
+            --honda-dark: #1A1A1A;
+            --honda-gray: #F4F4F4;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --glass: rgba(255, 255, 255, 0.8);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #FFFFFF;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseRed {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(204, 0, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(204, 0, 0, 0); }
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--honda-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--honda-dark);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .badge {
+            background: rgba(204, 0, 0, 0.1);
+            color: var(--honda-red);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--honda-dark);
+        }
+
+        h1 span {
+            color: var(--honda-red);
+        }
+
+        .hero-p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 18px 36px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--honda-red);
+            color: var(--white);
+            box-shadow: 0 10px 20px rgba(204, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(204, 0, 0, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border: 8px solid var(--white);
+        }
+
+        /* --- Features --- */
+        .features {
+            padding: 100px 0;
+            background: var(--honda-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(204, 0, 0, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: var(--honda-red);
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* --- Showcase --- */
+        .showcase {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--honda-dark);
+            color: var(--white);
+        }
+
+        .showcase h2 {
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .stat-item h4 {
+            font-size: 48px;
+            color: var(--honda-red);
+            margin-bottom: 10px;
+        }
+
+        /* --- Pricing --- */
+        .pricing {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .price-card {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--honda-red);
+            position: relative;
+            max-width: 450px;
+        }
+
+        .price-card .discount-tag {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background: var(--honda-red);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 800;
+            transform: rotate(5deg);
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .discounted-price {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--honda-red);
+            margin-bottom: 20px;
+        }
+
+        .price-card ul {
+            text-align: left;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .price-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--honda-gray);
+            color: var(--text-light);
+        }
+
+        .price-card ul li::before {
+            content: "✓";
+            color: var(--honda-red);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* --- Footer CTA --- */
+        .footer-cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta-card {
+            background: var(--honda-red);
+            padding: 80px 40px;
+            border-radius: 30px;
+            color: var(--white);
+            animation: pulseRed 3s infinite;
+        }
+
+        .cta-card h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .cta-card p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--honda-red);
+        }
+
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            color: var(--text-light);
+            border-top: 1px solid var(--honda-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-p { margin: 0 auto 35px; }
+            .cta-group { justify-content: center; }
+            h1 { font-size: 42px; }
+            .stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">SHIVA <span>HONDA</span></div>
+            <div style="font-weight: 600; color: var(--text-light);">v2.0 PRO</div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">Next-Gen Dealer Management</span>
+                <h1>Empower Your <span>Honda Dealership</span> with Smart Intelligence</h1>
+                <p class="hero-p">The most comprehensive, fast, and reliable DMS designed specifically for Honda Two-Wheeler retailers. Manage inventory, finances, and RTO in one place.</p>
+                <div class="cta-group">
+                    <a href="#" class="btn btn-primary">Book a Live Demo</a>
+                    <a href="#" style="color: var(--honda-dark); font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px;">View Features &rarr;</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="hero.png" alt="My Shiva Honda DMS Interface">
+            </div>
+        </section>
+    </div>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Everything you need to <span>succeed</span></h2>
+                <p>Built by dealers, for dealers. We understand your daily challenges.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">📦</div>
+                    <h3>Smart Inventory</h3>
+                    <p>Real-time tracking of Godown, Showroom, and Dispatched stock. Never miss a sale due to stock blindness.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💰</div>
+                    <h3>Financial Mastery</h3>
+                    <p>Automated Cash Book entries and Daily Financial Reports. Professional accounting made simple and error-free.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📄</div>
+                    <h3>Insurance & RTO</h3>
+                    <p>Seamlessly track insurance payouts and RTO compliance. Automated difference calculations for total transparency.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>Blazing Fast UI</h3>
+                    <p>A premium, brand-aligned interface designed for speed. Accessible on tablets, mobile, and desktops.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Automatic Backups</h3>
+                    <p>Your data is precious. Our system performs secure daily backups automatically so you can sleep easy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Rich Analytics</h3>
+                    <p>Visual dashboards that give you a bird's eye view of your business performance in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="showcase">
+        <div class="container">
+            <h2>Why dealers trust us?</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <h4>40%</h4>
+                    <p>Increase in operational efficiency</p>
+                </div>
+                <div class="stat-item">
+                    <h4>100%</h4>
+                    <p>Data accuracy in financial reporting</p>
+                </div>
+                <div class="stat-item">
+                    <h4>24/7</h4>
+                    <p>Data security and backup reliability</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="footer-cta">
+            <div class="cta-card">
+                <h2>Ready to transform your business?</h2>
+                <p>Join the elite group of Honda dealers using My Shiva Honda DMS.</p>
+                <a href="#" class="btn btn-white btn">Contact Sales Team</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 My Shiva Honda App. All rights reserved. Designed for Excellence.</p>
+    </footer>
+
+</body>
+</html>

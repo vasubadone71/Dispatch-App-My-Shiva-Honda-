@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "DispatchApp",
+    "slug": "DispatchApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon_honda.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "jsEngine": "hermes",
+    "splash": {
+      "image": "./assets/splash_honda.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive_icon_honda.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "ycom.myshivahonda.dispatch",
+      "versionCode": 12
+    },
+    "web": {
+      "favicon": "./assets/icon_honda.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "612e20b5-14f0-441c-aa62-a214f03d567d"
+      }
+    },
+    "plugins": [
+      "expo-secure-store"
+    ]
+  }
+}
